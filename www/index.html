@@ -49,7 +49,7 @@
       let reference = parseInt($("#reference").val());
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass
-        .lessThan("reference", reference)
+        .lessThanOrEqualTo("reference", reference)
         .fetchAll()
         .then(function(results) {
           showResults(results);
@@ -60,7 +60,7 @@
       let reference = parseInt($("#reference").val());
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass
-        .greaterThan("reference", reference)
+        .greaterThanOrEqualTo("reference", reference)
         .fetchAll()
         .then(function(results) {
           showResults(results);
@@ -72,6 +72,7 @@
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass
         .equalTo("type1", type1)
+        .equalTo("type2", type1)
         .fetchAll()
         .then(function(results) {
           showResults(results);
