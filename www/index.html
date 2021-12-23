@@ -67,6 +67,17 @@
         })
     }
 
+    function searchtype() {
+      let type1 = $("#type1").val();
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass
+        .equalTo("type1", type1)
+        .fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+
     function showResults(results) {
       // テーブルのヘッダを生成
       let msg = "<table><tr><th>No</th><th>name</th><th>タイプ1</th><th>タイプ2</th></tr>";
@@ -105,16 +116,17 @@
     <button class="btn" onclick="searchLevel()">図鑑No</button>
     <button class="btn" onclick="searchLevelGT()">図鑑No &gt</button>
   </div>
+  <h2>タイプで検索してみよう</h2>
   <div>
-    <label for="name">type1:</label>
-    <input id="name" type="text" placeholder="monster name">
+    <label for="type1">type1:</label>
+    <input id="type1" type="text" placeholder="monster name">
   </div>
   <div>
-    <label for="name">type2:</label>
-    <input id="name" type="text" placeholder="monster name">
+    <label for="type2">type2:</label>
+    <input id="type2" type="text" placeholder="monster name">
   </div>
   <div id="button">
-    <button class="btn" onclick="searchLevelLT()">type</button>
+    <button class="btn" onclick="searchtype()">type</button> 
   </div>
   <div id="message">message area</div>
 </body>
