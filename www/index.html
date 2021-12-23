@@ -72,7 +72,6 @@
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass
         .equalTo("type1", type1)
-        .equalTo("type2", type1)
         .fetchAll()
         .then(function(results) {
           showResults(results);
@@ -97,6 +96,8 @@
       TestDataClass
         .equalTo("type1", type1)
         .equalTo("type2", type2)
+   //     .equalTo("type1", type2)
+   //     .equalTo("type2", type1)
         .fetchAll()
         .then(function(results) {
           showResults(results);
