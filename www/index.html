@@ -46,10 +46,10 @@
     }
 
     function searchLevelLT() {
-      let level = parseInt($("#level").val());
+      let reference = parseInt($("#reference").val());
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass
-        .lessThan("level", level)
+        .lessThan("reference", reference)
         .fetchAll()
         .then(function(results) {
           showResults(results);
@@ -57,10 +57,10 @@
     }
 
     function searchLevelGT() {
-      let level = parseInt($("#level").val());
+      let reference = parseInt($("#reference").val());
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass
-        .greaterThan("level", level)
+        .greaterThan("reference", reference)
         .fetchAll()
         .then(function(results) {
           showResults(results);
@@ -93,8 +93,8 @@
     <input id="name" type="text" placeholder="monster name">
   </div>
   <div>
-    <label for="level">図鑑No</label>
-    <input id="level" type="number" placeholder="monster level">
+    <label for="reference">図鑑No:</label>
+    <input id="reference" type="number" placeholder="monster reference">
   </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
