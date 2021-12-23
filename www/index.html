@@ -67,11 +67,22 @@
         })
     }
 
-    function searchtype() {
+    function searchtype1() {
       let type1 = $("#type1").val();
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass
         .equalTo("type1", type1)
+        .fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+
+    function searchtype2() {
+      let type2 = $("#type2").val();
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass
+        .equalTo("type2", type2)
         .fetchAll()
         .then(function(results) {
           showResults(results);
@@ -119,13 +130,15 @@
   <h2>タイプで検索してみよう</h2>
   <div>
     <label for="type1">type1:</label>
-    <input id="type1" type="text" placeholder="monster name">
+    <input id="type1" type="text" placeholder="monster type1">
   </div>
   <div>
     <label for="type2">type2:</label>
-    <input id="type2" type="text" placeholder="monster name">
+    <input id="type2" type="text" placeholder="monster type2">
   </div>
   <div id="button">
+    <button class="btn" onclick="searchtype1()">type1</button>
+    <button class="btn" onclick="searchtype2()">type2</button> 
     <button class="btn" onclick="searchtype()">type</button> 
   </div>
   <div id="message">message area</div>
